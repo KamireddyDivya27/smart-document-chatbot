@@ -13,6 +13,12 @@ from dotenv import load_dotenv
 load_dotenv()
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "")
 
+# Fallback for Streamlit Cloud secrets
+if not GOOGLE_API_KEY:
+    try:
+        GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
+    except Exception:
+        pass
 st.set_page_config(page_title="Smart Document Chatbot", page_icon="📄")
 st.title("📄 Smart Document Chatbot")
 st.markdown("Upload any PDF and ask questions about it!")
