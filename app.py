@@ -77,7 +77,7 @@ Answer:"""
     )
 
     model = ChatGoogleGenerativeAI(
-        model="gemini-1.5-flash-8b",
+        model="gemini-2.5-flash",
         temperature=0.3,
         google_api_key=GOOGLE_API_KEY
     )
